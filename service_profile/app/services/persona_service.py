@@ -15,7 +15,7 @@ async def create_persona_profile(persona: Persona):
     """
     key = encode_name(persona.nome)
     data = persona.dict()
-    await save_to_mongo(key, data)
+    await save_to_mongo(key, data, "persona_info")
     return {"status": "success"}
 
 async def get_persona_profile(fields: List[str]):
@@ -28,4 +28,4 @@ async def get_persona_profile(fields: List[str]):
         dict: Profile data for the specified fields.
     """
     query = create_query(fields)
-    return await fetch_from_mongo(query)
+    return await fetch_from_mongo(query, "persona_info")
