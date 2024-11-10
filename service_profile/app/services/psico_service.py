@@ -14,5 +14,5 @@ async def create_psico_profile(psico: Psico):
     key = encode_name(f"{psico.nome}{psico.registro}")
     data = psico.dict()
     data['conversas'] = []
-    await save_to_mongo(key, data)
+    await save_to_mongo(key, data, "psico_info")
     return {"status": "success"}
