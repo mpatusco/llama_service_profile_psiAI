@@ -13,7 +13,7 @@ async def save_to_mongo(key: str, data: dict, client_param: str):
     db = client[client_param]
     db.profiles.insert_one({"_id": key, **data})
 
-async def fetch_from_mongo(query: dict, client_param: str):
+async def fetch_from_mongo(key: str, client_param: str):
     """Fetch data from MongoDB based on a query.
 
     Args:
@@ -23,4 +23,5 @@ async def fetch_from_mongo(query: dict, client_param: str):
         dict: The document matching the query.
     """
     db = client[client_param]
-    return db.profiles.find_one(query)
+    print("chegou aqui")
+    return db.profiles.find_one({"_id": key})

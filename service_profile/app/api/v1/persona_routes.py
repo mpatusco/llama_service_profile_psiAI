@@ -24,7 +24,7 @@ async def create_persona(persona: Persona):
         raise HTTPException(status_code=400, detail=str(e))
 
 @router.get("/")
-async def get_persona(fields: List[str]):
+async def get_persona(nome: str):
     """Retrieve persona profile data based on specific fields.
 
     Args:
@@ -37,6 +37,6 @@ async def get_persona(fields: List[str]):
         HTTPException: If there's an error in the process.
     """
     try:
-        return await get_persona_profile(fields)
+        return await get_persona_profile(nome)
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))

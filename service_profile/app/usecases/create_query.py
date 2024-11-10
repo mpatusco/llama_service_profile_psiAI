@@ -1,7 +1,7 @@
 from typing import List
 
 
-def create_query(fields: List[str]) -> dict:
+def create_query(fields: str) -> dict:
     """Generate a MongoDB query to fetch specific fields.
 
     Args:
